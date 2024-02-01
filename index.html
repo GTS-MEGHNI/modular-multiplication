@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modular multiplication</title>
+    <script src="main.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            gap: 30px;
+        }
+        #canvas {
+            background: black;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            gap: 16px;
+        }
+        label {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: transparent;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #0078d4;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #0078d4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .container div {
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #005a9e;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        @media screen and (max-width: 1300px) {
+            .buttons {
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            .buttons {
+                flex-direction: row !important;
+                gap: 10px;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <label for="multiplierInput">Multiplier:</label>
+        <input type="number" id="multiplierInput" value="2">
+    </div>
+    <div>
+        <label for="pointsInput">Points in circle:</label>
+        <input type="number" value="10" id="pointsInput">
+    </div>
+    <div>
+        <label for="timer">Time per sequence (ms)</label>
+        <input type="number" id="timer" value="300">
+    </div>
+    <div>
+        <label for="maxIterations">Max iterations</label>
+        <input type="number" id="maxIterations" value="100">
+    </div>
+    <div class="buttons">
+        <button id="start">Start visualizing</button>
+        <button id="incrementMultiplier">Increment multiplier</button>
+        <button id="reset">Reset canvas</button>
+        <button id="auto">Auto play</button>
+    </div>
+</div>
+<canvas id="canvas" style="rotate: -90deg"></canvas>
+</body>
+</html>
